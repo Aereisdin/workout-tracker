@@ -9,9 +9,9 @@ const workoutSchema = new Schema({
   },
   totalDuration: {
     type: Number,
-    default: { type: Schema.Types.ObjectId, ref: "Exercise"}
+    default: 10
   },
-  exercises: { type: Schema.Types.ObjectId, ref: "Exercise"}
+  exercises: [{ type: Schema.Types.ObjectId, ref: "Exercise"}]
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);

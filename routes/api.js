@@ -13,12 +13,14 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.put("/api/workouts/:id", ({ body }, res) => {
-  Exercise.insertMany(body)
+  console.log(`~~~~--Adding Exercise---~~~`)
+  Exercise.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
     .catch(err => {
       res.status(400).json(err);
+      console.log(err);
     });
 });
 
@@ -38,7 +40,7 @@ router.get("/api/workouts", (req, res) => {
     .sort({ date: -1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
-      console.log(dbWorkout)
+      // console.log(dbWorkout)
     })
     
     .catch(err => {
